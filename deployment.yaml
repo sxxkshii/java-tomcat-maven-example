@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: javawebapp-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: javawebapp
+
+  template:
+    metadata:
+      labels:
+        app: javawebapp
+
+    spec:
+      containers:
+      - name: javawebapp-container
+        image: sxxkshi/javawebapp:v1
+
+        ports:
+        - containerPort: 8080
